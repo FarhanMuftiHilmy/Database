@@ -1,0 +1,12 @@
+INSERT INTO contoh_table_serius values
+(1,"Nanti Saja",19920201,20190101,"lanjut","ini contoh deskripsi", now(()))
+
+//tambah data ke 1
+NOT NULL = harus diisi
+yang hana diiisi judul dan status
+
+//tambah data ke 2
+insert into contoh_table_serius(judul, status)
+values<"Sekarang saja", "Selesai">
+
+select id,judul,status,dibuat_pada,deskripsi from conto_table_serius;
