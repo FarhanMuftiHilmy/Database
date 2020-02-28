@@ -14,6 +14,6 @@ select id,judul,status,dibuat_pada,deskripsi from conto_table_serius;
 show databases
 show tables
 desc contoh_tabel_serius
-show warnings /G
+show warnings \G
 
 
