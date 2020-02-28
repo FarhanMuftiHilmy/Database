@@ -23,5 +23,6 @@ show databases
 show tables
 desc contoh_tabel_serius
 show warnings \G 
+show create table gaji \G //lihat proses perintah
 
 
