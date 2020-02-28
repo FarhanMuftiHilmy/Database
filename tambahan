@@ -11,9 +11,17 @@ values<"Sekarang saja", "Selesai">
 
 select id,judul,status,dibuat_pada,deskripsi from conto_table_serius;
 
+// pencarian data
+select * from pegawai where jenis_kel="P" and year(tgl_lahir)>1991;
+select * from pegawai where email like "%yahoo.com"; 
+select * form pegawai where name like "D___" //cari nama yg berawalan huruf d dilanjutkan 3 huruf
+select * from pegawai where name like "D%" //cari nama yg berawalan huruf d
+
+//lainnya
 show databases
 show tables
 desc contoh_tabel_serius
 show warnings \G
+
 
 
