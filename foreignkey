@@ -1,0 +1,1 @@
+create table gaji(no_id int(4) not null,gaji bigint(10) not null,dari date not null, sampai date,foreign key(no_id) references pegawai(no_id));
