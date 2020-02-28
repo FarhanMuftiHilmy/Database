@@ -20,3 +20,8 @@ update pegawai set jenis_kel="L";
 update pegawai set email captain@gmail.com where no_id=3;
 
 insert into pegawai(nama,tgl_lahir,jenis_kel,email) values("Dewi",19900510,"P","dewiii@yahoo.com"),("Ariesta",19900322,"P","wedus@yahoo.com"),("Virgo",19901211,"P","gentongajaib@yahoo.com"),("Angelica",19951017,"P","angelbanget@yahoo.com");
+
+alter table pegawai add column alamat varchar(20) default "Nomaden";
+
+
+
