@@ -12,3 +12,9 @@ delete from pegawai where no_id=4;
 alter table pegawai add column jenis_kel ENUM("L", "P") AFTER tgl_lhr;
 //mengubah/menambah properti field/kolom no_id menjadi primary key not null
 alter table pegawai modify no_id int(4) primay key not nulll
+//memasukkan data pada kolom tertentu
+insert into pegawai(nama,tgl_lhr) values("Steve",19700201),("Rogers",19710102);
+//mengupdate data yang sudah ada pada keseluruhan data
+update pegawai set jenis_kel="L";
+//mengupdate data yang sudah ada pada data tertentu
+update pegawai set email captain@gmail.com where no_id=3;
