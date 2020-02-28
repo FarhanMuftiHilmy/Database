@@ -10,3 +10,9 @@ insert into contoh_table_serius(judul, status)
 values<"Sekarang saja", "Selesai">
 
 select id,judul,status,dibuat_pada,deskripsi from conto_table_serius;
+
+show databases
+show tables
+desc contoh_tabel_serius
+
+
