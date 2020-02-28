@@ -1,0 +1,14 @@
+create database perusahaan
+create table pegawai(no_id int(10),nama varchar(20),tgl_lahir date,email varchar(25));
+use pegawai
+//memasukkan lebih dari satu input
+input into pegawai values
+(1,"Kania Wijaya",1989,"kawe@gmail.com"),
+(2,"Steve Rogers",1990,"salah@gmail.com");
+//hapus dengan syarat no_id=x
+delete from pegawai where no_id=3;
+delete from pegawai where no_id=4;
+//menambah field/kolom jenis_kel dengan tipe pilihan L/P setelah kolom tgl_lhr
+alter table pegawai add column jenis_kel ENUM("L", "P") AFTER tgl_lhr;
+//mengubah/menambah properti field/kolom no_id menjadi primary key not null
+alter table pegawai modify no_id int(4) primay key not nulll
