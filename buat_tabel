@@ -7,3 +7,6 @@ status VARCHAR(15) NOT NULL,
 deskripsi TEXT,
 dibuat_pada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+//buat tabel dengan 2 primary key
+create table titles(emp_no int(11), constraint titles_pk primary key(title, from_date)) //titles_pk nama asal, title dan from_date properti yang akan dijadikan primary key
+//kalau foreign key tinggal 2 kali memasukkan foreign key<nama properti> references <nama tabel yg berisi primary key><nama properti>
