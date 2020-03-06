@@ -12,6 +12,10 @@ delete from pegawai where no_id=4;
 alter table pegawai add column jenis_kel ENUM("L", "P") AFTER tgl_lhr;
 //mengubah/menambah properti field/kolom no_id menjadi primary key not null
 alter table pegawai modify no_id int(4) primay key not nulll
+//mengubah properti field/kolom menjadi foreign key not null
+SET FOREIGN_KEY_CHECKS = 0;
+alter table <nama tabel> modify <nama properti> <tipe data properti> not null;
+SET FOREIGN_KEY_CHECKS = 1;
 //memasukkan data pada kolom tertentu
 insert into pegawai(nama,tgl_lhr) values("Steve",19700201),("Rogers",19710102);
 //mengupdate data yang sudah ada pada keseluruhan data
