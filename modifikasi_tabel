@@ -36,9 +36,14 @@ step2.pada phpMyAdmin klik import file nama_databse.sql
 step0. check dulu dengan show create table <nama tabel>
 step1. Tambah properti sama dengan foreign key on delete cascade
 alter table dept_emp add foreign key (dept_no) references departments(dept_no) on delete cascade;
+atau agar tidak usah step0/ tidak usah ngecek
+alter table dept_emp add constraint <nama konstrain> foreign key (dept_no) references departments(dept_no) on delete cascade; // nama konstrain ialah kode, contoh:dept_emp_ibfk
 step2. Drop properti yang belum ada on delete cascade-nya
 alter table dept_emp drop foreign key <kode-nya>, contoh kode: dept_emp_ibfk_2
 
+//menambah dan menghapus kolom
+alter table dept_emp add column kolom int(3) not null;
+alter table dept_emp drop column kolom;
 
 
 
