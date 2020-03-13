@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 05:12 AM
+-- Generation Time: Mar 13, 2020 at 05:03 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `departments` (
   `dept_no` char(4) NOT NULL,
-  `dept_name` varchar(40) DEFAULT NULL
+  `dept_name` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `departments` (
 CREATE TABLE IF NOT EXISTS `dept_emp` (
   `emp_no` int(11) NOT NULL,
   `dept_no` char(1) NOT NULL,
-  `from_date` date DEFAULT NULL,
-  `to_date` date DEFAULT NULL
+  `from_date` date NOT NULL,
+  `to_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `dept_emp` (
 CREATE TABLE IF NOT EXISTS `dept_manager` (
   `dept_no` char(1) NOT NULL,
   `emp_no` int(11) NOT NULL,
-  `from_date` date DEFAULT NULL,
-  `to_date` date DEFAULT NULL
+  `from_date` date NOT NULL,
+  `to_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -65,11 +65,11 @@ CREATE TABLE IF NOT EXISTS `dept_manager` (
 
 CREATE TABLE IF NOT EXISTS `employees` (
   `emp_no` int(11) NOT NULL,
-  `birh_date` date DEFAULT NULL,
-  `first_name` varchar(14) DEFAULT NULL,
-  `last_name` varchar(16) DEFAULT NULL,
-  `gender` enum('M','F') DEFAULT NULL,
-  `hire_date` date DEFAULT NULL
+  `birh_date` date NOT NULL,
+  `first_name` varchar(14) NOT NULL,
+  `last_name` varchar(16) NOT NULL,
+  `gender` enum('M','F') NOT NULL,
+  `hire_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -106,7 +106,8 @@ CREATE TABLE IF NOT EXISTS `titles` (
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
-  ADD PRIMARY KEY (`dept_no`);
+  ADD PRIMARY KEY (`dept_no`),
+  ADD UNIQUE KEY `dept_name` (`dept_name`);
 
 --
 -- Indexes for table `dept_emp`
@@ -150,15 +151,15 @@ ALTER TABLE `titles`
 -- Constraints for table `dept_emp`
 --
 ALTER TABLE `dept_emp`
-  ADD CONSTRAINT `dept_emp_ibfk_1` FOREIGN KEY (`emp_no`) REFERENCES `employees` (`emp_no`),
-  ADD CONSTRAINT `dept_emp_ibfk_2` FOREIGN KEY (`dept_no`) REFERENCES `departments` (`dept_no`);
+  ADD CONSTRAINT `dept_emp_ibfk_3` FOREIGN KEY (`emp_no`) REFERENCES `employees` (`emp_no`) ON DELETE CASCADE,
+  ADD CONSTRAINT `dept_emp_ibfk_4` FOREIGN KEY (`dept_no`) REFERENCES `departments` (`dept_no`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `dept_manager`
 --
 ALTER TABLE `dept_manager`
-  ADD CONSTRAINT `dept_manager_ibfk_1` FOREIGN KEY (`dept_no`) REFERENCES `departments` (`dept_no`),
-  ADD CONSTRAINT `dept_manager_ibfk_2` FOREIGN KEY (`emp_no`) REFERENCES `employees` (`emp_no`);
+  ADD CONSTRAINT `dept_manager_ibfk_3` FOREIGN KEY (`dept_no`) REFERENCES `departments` (`dept_no`) ON DELETE CASCADE,
+  ADD CONSTRAINT `dept_manager_ibfk_4` FOREIGN KEY (`emp_no`) REFERENCES `employees` (`emp_no`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `salaries`
