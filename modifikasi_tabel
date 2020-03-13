@@ -12,6 +12,7 @@ delete from pegawai where no_id=4;
 alter table pegawai add column jenis_kel ENUM("L", "P") AFTER tgl_lhr;
 //mengubah/menambah properti field/kolom no_id menjadi primary key not null
 alter table pegawai modify no_id int(4) primay key not nulll
+alter table pegawai add unique (no_id);
 //mengubah properti field/kolom menjadi foreign key not null
 SET FOREIGN_KEY_CHECKS = 0;
 alter table <nama tabel> modify <nama properti> <tipe data properti> not null;
@@ -26,6 +27,18 @@ update pegawai set email captain@gmail.com where no_id=3;
 insert into pegawai(nama,tgl_lahir,jenis_kel,email) values("Dewi",19900510,"P","dewiii@yahoo.com"),("Ariesta",19900322,"P","wedus@yahoo.com"),("Virgo",19901211,"P","gentongajaib@yahoo.com"),("Angelica",19951017,"P","angelbanget@yahoo.com");
 
 alter table pegawai add column alamat varchar(20) default "Nomaden";
+
+//cara import database hasil export (contoh: nama_database.sql)
+step1.buat database di cmd namanya persis dengan nama_database.sql
+step2.pada phpMyAdmin klik import file nama_databse.sql
+
+//mengubah properti field/kolom yang memiliki foreign key jadi on delete cascade
+step0. check dulu dengan show create table <nama tabel>
+step1. Tambah properti sama dengan foreign key on delete cascade
+alter table dept_emp add foreign key (dept_no) references departments(dept_no) on delete cascade;
+step2. Drop properti yang belum ada on delete cascade-nya
+alter table dept_emp drop foreign key <kode-nya>, contoh kode: dept_emp_ibfk_2
+
 
 
 
