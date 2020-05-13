@@ -1,4 +1,4 @@
-# Database_MySQL
+# Database
 
 Collection of study materials regarding "Database using MySQL" from Software Engineering Technology Study Programme
 
